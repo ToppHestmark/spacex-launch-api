@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap');
+@import url("https://use.typekit.net/xbs5fht.css");
+
+*{
+  margin: 0;
+  padding: 0;
+  color: #323232;
+  box-sizing: border-box;
+  font-family: 'Oswald', sans-serif;
+}
+
+body {
+  background-color: whitesmoke;
+}
+
+h1 {
+  margin: 1rem;
+  text-align: center;
+  padding-bottom: 20px;
+  font-family: good-times, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+p, b {
+  color: #2f3640;
+  padding-top: 10px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.result {
+  margin: 1rem;
+  padding: 2rem;
+  width: 300px;
+  background-color: #ffffff;
+  box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.badge {
+  max-width: 50%;
+  display: flex;
+  margin: auto;
+}
+.rocket__name {
+  font-family: good-times, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  padding-top: 30px;
+}
+
+
+.error {
+  border: 1px solid darkred;
+  padding: 3rem;
+  font-size: 22px;
+  color: darkred;
+  background: rgba(255, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: black;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}

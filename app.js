@@ -1,7 +1,7 @@
 const url = "https://api.spacexdata.com/v3/launches/past";
 const resultsContainer = document.querySelector(".results");
 
-async function getLaunches() {
+async function getPastLaunches() {
 
   const response = await fetch(url)
   const results = await response.json()
@@ -11,7 +11,6 @@ async function getLaunches() {
   for (let i = 0; i < results.length; i++) {
 
     // console.log(results[i].launch_success);
-
 
     const launchDate = results[i].launch_date_utc;
     let unformattedDate = new Date(launchDate);
@@ -25,14 +24,7 @@ async function getLaunches() {
     const date = `${mo} ${da}, ${ye}`;
     const launchSite = results[i].launch_site.site_name_long;
     const launchSuccess = results[i].launch_success;
-    function success() {
-      // if (launchSuccess) {
-      //   return "LAUNCH SUCCESSFUL";
-      // } else if (!launchSuccess) {
-      //   return "LAUNCH UNSUCCESSFUL";
-      // } else {
-      //   return ""
-      // }
+    function successFactor() {
       return launchSuccess ? `<p class="successful_message">SUCCESSFUL</p>` : `<p class="unsuccessful_message">UNSUCCESSFUL</p>`;
     }
     
@@ -43,9 +35,9 @@ async function getLaunches() {
     <p><b>Flight Number:</b> ${flightNumber}</p>
     <p><b>Launch Date:</b> ${date}</p>
     <p><b>Launch Site:</b> ${launchSite}</p>
-    ${success()}
+    ${successFactor()}
     </div>`
   }
 }
 
-getLaunches()
+getPastLaunches()

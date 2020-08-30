@@ -56,7 +56,7 @@ h1 {
   display: flex;
   margin: auto;
 }
-.rocket__name {
+.mission__name {
   padding-bottom: 20px;
   font-size: x-large;
   font-weight: 700;
@@ -69,6 +69,7 @@ h1 {
   padding: 10px;
   padding-bottom: 10px;
   margin-top: 25px;
+  margin-bottom: 25px;
   color: #dd2c00;
   text-align: center;
 }
@@ -77,6 +78,7 @@ h1 {
   padding: 10px;
   padding-bottom: 10px;
   margin-top: 25px;
+  margin-bottom: 25px;
   color: #81b214;
   text-align: center;
 }
@@ -95,14 +97,14 @@ h1 {
   position: relative;
   width: 80px;
   height: 80px;
-  margin-top: 15em;
+  margin-top: 10em;
 }
 .lds-facebook div {
   display: inline-block;
   position: absolute;
   left: 8px;
   width: 16px;
-  background: black;
+  background: #323232;
   animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
 .lds-facebook div:nth-child(1) {

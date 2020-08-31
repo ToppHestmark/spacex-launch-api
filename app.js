@@ -59,4 +59,4 @@ async function getPastLaunches() {
   
 }
 
-getPastLaunches()
+getPastLaunches();

@@ -76,11 +76,28 @@ h1 {
 .successful_message {
   border: 1px solid #81b214;
   padding: 10px;
-  padding-bottom: 10px;
   margin-top: 25px;
   margin-bottom: 25px;
   color: #81b214;
   text-align: center;
+}
+
+.details_description {
+  padding-bottom: 25px;
+}
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.external_link {
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  background-color: #43658b;
+}
+.article_link {
+  padding: 10px 29px 10px 29px;
 }
 
 .error {

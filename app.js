@@ -25,15 +25,17 @@ async function getPastLaunches() {
     const launchSite = results[i].launch_site.site_name_long;
     const rocketName = results[i].rocket.rocket_name;
     const launchSuccess = results[i].launch_success;
+    const videoLink = results[i].links.video_link;
+    const articleLink = results[i].links.article_link;
     function successFactor() {
       return launchSuccess ? `<p class="successful_message">SUCCESSFUL</p>` : `<p class="unsuccessful_message">UNSUCCESSFUL</p>`;
     }
     const details = results[i].details;
     function detailsDescription() {
-      return details ? `<p>${details}</p>` : "";
+      return details ? `<p class="details_description">${details}</p>` : "";
     }
 
-    console.log(results[i].rocket.rocket_name);
+    // console.log(results[i].links.article_link);
 
     resultsContainer.innerHTML +=  `<div class="result">
     <img class="badge" src="${rocketBadge}" alt="">
@@ -44,6 +46,10 @@ async function getPastLaunches() {
     <p><b>Rocket Name:</b> ${rocketName}</p>
     ${successFactor()}
     ${detailsDescription()}
+    <div class="links">
+    <a class="external_link" href="${videoLink}">WATCH VIDEO</a>
+    <a class="external_link article_link" href="${articleLink}">ARTICLE</a>
+    </div>
     </div>`
   }
   }

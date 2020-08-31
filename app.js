@@ -20,7 +20,7 @@ async function getPastLaunches() {
 
     const rocketBadge = results[i].links.mission_patch_small;
     const missionName = results[i].mission_name
-    const flightNumber = results[i].flight_number;
+    let flightNumber = results[i].flight_number;
     const date = `${mo} ${da}, ${ye}`;
     const launchSite = results[i].launch_site.site_name_long;
     const rocketName = results[i].rocket.rocket_name;
@@ -35,7 +35,7 @@ async function getPastLaunches() {
       return details ? `<p class="details_description">${details}</p>` : "";
     }
 
-    // console.log(results[i].links.article_link);
+    console.log(results[i].flight_number);
 
     resultsContainer.innerHTML +=  `<div class="result">
     <img class="badge" src="${rocketBadge}" alt="">

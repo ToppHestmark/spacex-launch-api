@@ -21,15 +21,17 @@ function creareUpcomingMissionHtml(results) {
 
   for (let i = 0; i < results.length; i++) {
 
-    if (i === 6) {
+    if (i === 8) {
       break;
-    }
+    } 
     const launchDate = results[i].launch_date_utc;
     const getDate = new Date(launchDate);
     const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(getDate);
     const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(getDate);
     const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(getDate);
-
+    if (getDate < Date.now()) {
+      continue;
+    }
     const missionName = results[i].mission_name
     const flightNumber = results[i].flight_number;
     const date = `${mo} ${da}, ${ye}`;

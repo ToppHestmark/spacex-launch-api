@@ -19,10 +19,6 @@ async function getUpcomingLaunches() {
       const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(getDate);
       const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(getDate);
 
-      if (getDate < Date.now()) {
-        continue;
-      } 
-
       const missionName = results[i].mission_name
       const flightNumber = results[i].flight_number;
       const date = `${mo} ${da}, ${ye}`;

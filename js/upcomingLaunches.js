@@ -2,14 +2,11 @@ const url = "https://api.spacexdata.com/v3/launches/upcoming";
 const resultsContainer = document.querySelector(".results");
 
 async function getUpcomingLaunches() {
-
   try {
     const response = await fetch(url);
     const results = await response.json();
 
-    // console.log(results)
     creareUpcomingMissionHtml(results)
-
   }
   catch(error) {
     resultsContainer.innerHTML = displayError("An error occured when calling API")
@@ -24,6 +21,9 @@ function creareUpcomingMissionHtml(results) {
 
   for (let i = 0; i < results.length; i++) {
 
+    if (i === 6) {
+      break;
+    }
     const launchDate = results[i].launch_date_utc;
     const getDate = new Date(launchDate);
     const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(getDate);

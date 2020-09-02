@@ -100,6 +100,10 @@ h1 {
   padding: 10px 29px 10px 29px;
 }
 
+.upcoming_launch_details {
+  margin-top: 25px;
+}
+
 .error {
   border: 1px solid darkred;
   padding: 3rem;

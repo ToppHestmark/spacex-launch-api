@@ -38,10 +38,10 @@ function createPastFlightHtml(results) {
   results.forEach(object => {
   
   const launchDate = object.launch_date_utc;
-  const unformattedDate = new Date(launchDate);
-  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(unformattedDate);
-  const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(unformattedDate);
-  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(unformattedDate);
+  const getDate = new Date(launchDate);
+  const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(getDate);
+  const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(getDate);
+  const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(getDate);
 
   const rocketBadge = object.links.mission_patch_small;
   const missionName = object.mission_name

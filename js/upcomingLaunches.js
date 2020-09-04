@@ -56,10 +56,10 @@ function nextLaunchHtml(result) {
       const timeinterval = setInterval(() => {
         const t = getTimeRemaining(endtime);
         clock.innerHTML = `<div class="countdown_result">
-        <div>${t.days}<p>DAYS</p></div>
-        <div>${t.hours}<p>HOURS</p></div>
-        <div>${t.minutes}<p>MINUTES</p></div>
-        <div>${t.seconds}<p>SECONDS</p></div>
+        <div><p class="countdown_numbers">${t.days}</p> <p class="time_unit">DAYS</p></div>
+        <div><p class="countdown_numbers">${t.hours}</p> <p class="time_unit">HOURS</p></div>
+        <div><p class="countdown_numbers">${t.minutes}</p> <p class="time_unit">MINUTES</p></div>
+        <div><p class="countdown_numbers">${t.seconds}</p> <p class="time_unit">SECONDS</p></div>
         </div>`
 
         // Stop counting when passing the deadline

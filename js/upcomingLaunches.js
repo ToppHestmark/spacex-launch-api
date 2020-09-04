@@ -12,13 +12,14 @@ async function getNextLaunch() {
     const flightNumber = result.flight_number
     const launchSite = result.launch_site.site_name_long
     const rocketName = result.rocket.rocket_name
-    const dateUTC = result.launch_date_utc
-    const getDate = new Date(dateUTC);
+    const launchDateUTC = result.launch_date_utc
+    const getDate = new Date(launchDateUTC);
     const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(getDate);
     const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(getDate);
     const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(getDate);
     const date = `${mo} ${da}, ${ye}`;
-    console.log(date)
+    const countdown = document.getElementById("countdown");
+
 
     nextLaunchResult.innerHTML = `<div class="next_launch_result">
     <h2>${missionName}</h2>

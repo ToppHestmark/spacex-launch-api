@@ -3,12 +3,23 @@ const nextLaunchUrl = "https://api.spacexdata.com/v3/launches/next";
 const resultsContainer = document.querySelector(".results");
 const nextLaunchResult = document.querySelector(".next_launch_container");
 
+// Next launch
 async function getNextLaunch() {
   try {
     const response = await fetch(nextLaunchUrl);
     const result = await response.json();
 
-    const missionName = result.mission_name
+    nextLaunchHtml(result)
+  }
+  catch(error) {
+    resultsContainer.innerHTML = displayError("An error occured when calling API")
+  }
+}
+getNextLaunch()
+
+
+function nextLaunchHtml(result) {
+  const missionName = result.mission_name
     const flightNumber = result.flight_number
     const launchSite = result.launch_site.site_name_long
     const rocketName = result.rocket.rocket_name
@@ -25,15 +36,40 @@ async function getNextLaunch() {
     <p><b>Launch Date:</b> ${date}</p>
     <p><b>Launch Site:</b> ${launchSite}</p>
     <p><b>Rocket Name:</b> ${rocketName}</p>
-    </div>`
-  }
-  catch(error) {
-    resultsContainer.innerHTML = displayError("An error occured when calling API")
-  }
+    </div>`;
 
-}
-getNextLaunch()
+    // Timer countdown
+    function getTimeRemaining(endtime){
+      const total = Date.parse(endtime) - Date.parse(new Date());
+      const seconds = Math.floor( (total/1000) % 60 );
+      const minutes = Math.floor( (total/1000/60) % 60 );
+      const hours = Math.floor( (total/(1000*60*60)) % 24 );
+      const days = Math.floor( total/(1000*60*60*24) );
+    
+      return { total, days, hours, minutes, seconds };
 
+    }
+    getTimeRemaining(launchDateUTC)
+    
+    function initializeClock(id, endtime) {
+      const clock = document.getElementById(id);
+      const timeinterval = setInterval(() => {
+        const t = getTimeRemaining(endtime);
+        clock.innerHTML = `<div class="countdown_result">
+        <div>${t.days}<p>DAYS</p></div>
+        <div>${t.hours}<p>HOURS</p></div>
+        <div>${t.minutes}<p>MINUTES</p></div>
+        <div>${t.seconds}<p>SECONDS</p></div>
+        </div>`
+
+        // Stop counting when passing the deadline
+        if (t.total <= 0) {
+          // clearInterval(timeinterval);
+        }
+      },1000);
+    }
+    initializeClock('countdown_container', launchDateUTC);
+} 
 
 
 // --- Upcoming launches ---

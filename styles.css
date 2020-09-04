@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: whitesmoke;
+  background-attachment: fixed;
 }
 
 h1 {
@@ -25,16 +25,14 @@ h1 {
 
 .container {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
 }
 
 .results {
   display: flex;
+  justify-content: center;
+  align-items: stretch;
   flex-wrap: wrap;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 

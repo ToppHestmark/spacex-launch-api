@@ -18,8 +18,6 @@ async function getNextLaunch() {
     const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(getDate);
     const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(getDate);
     const date = `${mo} ${da}, ${ye}`;
-    const countdown = document.getElementById("countdown");
-
 
     nextLaunchResult.innerHTML = `<div class="next_launch_result">
     <h2>${missionName}</h2>

@@ -46,6 +46,7 @@ h1 {
   padding: 2rem;
   width: 320px;
   background-color: #ffffff;
+  opacity: 0.95;
 }
 
 .next_launch_container,
@@ -74,8 +75,9 @@ h1 {
 }
 
 .countdown_result {
-  padding: 3rem 3rem;
+  padding: 1rem 1rem;
   background-color: #ffffff;
+  opacity: 0.95;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

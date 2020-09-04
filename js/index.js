@@ -63,9 +63,9 @@ function nextLaunchHtml(result) {
         </div>`
 
         // Stop counting when passing the deadline
-        if (t.total <= 0) {
-          // clearInterval(timeinterval);
-        }
+        // if (t.total <= 0) {
+        //   clearInterval(timeinterval);
+        // }
       },1000);
     }
     initializeClock('countdown_container', launchDateUTC);

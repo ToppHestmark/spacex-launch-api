@@ -11,6 +11,8 @@
 
 body {
   background-attachment: fixed;
+  background-repeat:no-repeat;
+  background-position: center;
 }
 
 h1 {
@@ -21,6 +23,7 @@ h1 {
   font-size: 3rem;
   font-weight: 900;
   font-style: normal;
+  text-shadow: 1px 1px 2px grey, 0 0 0.5em grey;
   color: #eeeeee;
 }
 
@@ -37,7 +40,7 @@ h1 {
 }
 
 
-.result {
+.result, .next_launch_result {
   margin: 1rem;
   padding: 2rem;
   width: 320px;
@@ -49,6 +52,16 @@ h1 {
     0 22.3px 17.9px rgba(0, 0, 0, 0.072),
     0 41.8px 33.4px rgba(0, 0, 0, 0.086),
     0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+.next_launch_container {
+  display: flex;
+  justify-content: center;
+}
+
+.next_launch_result {
+  width: 800px;
+  min-width: 500px;
 }
 
 .badge {

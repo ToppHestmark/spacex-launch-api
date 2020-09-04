@@ -1,6 +1,43 @@
 const url = "https://api.spacexdata.com/v3/launches/upcoming";
+const nextLaunchUrl = "https://api.spacexdata.com/v3/launches/next";
 const resultsContainer = document.querySelector(".results");
+const nextLaunchResult = document.querySelector(".next_launch_container");
 
+async function getNextLaunch() {
+  try {
+    const response = await fetch(nextLaunchUrl);
+    const result = await response.json();
+
+    const missionName = result.mission_name
+    const flightNumber = result.flight_number
+    const launchSite = result.launch_site.site_name_long
+    const rocketName = result.rocket.rocket_name
+    const dateUTC = result.launch_date_utc
+    const getDate = new Date(dateUTC);
+    const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(getDate);
+    const mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(getDate);
+    const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(getDate);
+    const date = `${mo} ${da}, ${ye}`;
+    console.log(date)
+
+    nextLaunchResult.innerHTML = `<div class="next_launch_result">
+    <h2>${missionName}</h2>
+    <p><b>Flight Number:</b> ${flightNumber}</p>
+    <p><b>Launch Date:</b> ${date}</p>
+    <p><b>Launch Site:</b> ${launchSite}</p>
+    <p><b>Rocket Name:</b> ${rocketName}</p>
+    </div>`
+  }
+  catch(error) {
+    resultsContainer.innerHTML = displayError("An error occured when calling API")
+  }
+
+}
+getNextLaunch()
+
+
+
+// --- Upcoming launches ---
 async function getUpcomingLaunches() {
   try {
     const response = await fetch(url);
@@ -12,7 +49,6 @@ async function getUpcomingLaunches() {
     resultsContainer.innerHTML = displayError("An error occured when calling API")
   }
 }
-
 getUpcomingLaunches();
 
 
@@ -32,6 +68,7 @@ function creareUpcomingMissionHtml(results) {
     if (getDate < Date.now()) {
       continue;
     }
+
     const missionName = results[i].mission_name
     const flightNumber = results[i].flight_number;
     const date = `${mo} ${da}, ${ye}`;
